@@ -1,1 +1,13 @@
-<h3>{{post.title}}</h3>
+<div *ngFor="let post1 of masterPostList">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 (click)="selectPost(post1)">{{post1.title}}</h3>
+    </div>
+    <div *ngIf="post1 == this.selectedPost">
+      <div class="panel-body">
+        <app-post-detail [post2]="post1"></app-post-detail>
+        <button (click)="edit(post1)">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
